@@ -30,13 +30,12 @@
     </item>
     
     <item>
-      <title>Welcome</title>
+      <title>Hugo &#43; github个人博客搭建</title>
       <link>https://aopolin-lv.github.io/post/welcome/</link>
       <pubDate>Thu, 23 May 2019 22:31:35 +0800</pubDate>
       
       <guid>https://aopolin-lv.github.io/post/welcome/</guid>
-      <description> title: &amp;ldquo;建置Hugo Blog&amp;rdquo; author: &amp;ldquo;Aopolini&amp;rdquo; cover: &amp;ldquo;/media/posts/createHugoBlog/hugo01.png&amp;rdquo; date: 2019-05-23T22:31:35+08:00 tags: [&amp;ldquo;Hugo&amp;rdquo;]
-draft: false </description>
+      <description>#Hugo+Github个人博客搭建 ##这是二级标题</description>
     </item>
     
   </channel>
