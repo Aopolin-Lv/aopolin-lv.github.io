@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shell_基本命令 &middot; My New Hugo Site</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aopolin-lv.github.io/"><h1>My New Hugo Site</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aopolin-lv.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Shell_基本命令</h1>
+  <time datetime=2019-05-25T01:13:29&#43;0800 class="post-date">Sat, May 25, 2019</time>
+  
+
+<p>写在前面：主要罗列两周以内学习到的shell命令</p>
+
+<hr />
+
+<h2 id="文件-目录操作命令">文件、目录操作命令</h2>
+
+<ol>
+<li><p>ls命令
+功能：显示文件和目录的信息</p>
+
+<pre><code>    ls　# 以默认方式显示当前目录文件列表
+    ls -a # 显示所有文件包括隐藏文件
+    ls -l # 显示文件属性，包括大小，日期，符号连接，是否可读写及是否可执行
+    ls -lh # 显示文件的大小
+</code></pre></li>
+
+<li><p>cd命令
+功能：改名目录</p>
+
+<pre><code>    cd dir　# 切换到当前目录下的dir目录
+    cd /　 # 切换到根目录
+    cd ..　# 切换到到上一级目录
+    cd ../..　# 切换到上二级目录
+    cd ~　# 切换到用户目录，比如是root用户，则切换到/root下
+</code></pre></li>
+
+<li><p>cp命令
+功能：拷贝文件</p>
+
+<pre><code>    cp source target　# 将文件source复制为target
+    cp /root /source.　# 将/root下的文件source复制到当前目录
+    cp –av soure_dir target_dir　# 将整个目录复制，两目录完全一样
+</code></pre></li>
+
+<li><p>rm命令
+功能：删除文件或目录</p>
+
+<pre><code>    rm file　# 删除某一个文件
+    rm -f file # 删除时候不进行提示。可以于r参数配合使用，递归删除
+    rm -rf dir　# 删除当前目录下叫dir的整个目录
+</code></pre></li>
+
+<li><p>mv命令
+功能：将文件移动走，或者改名</p>
+
+<pre><code>    mv source target　# 将文件source更名为target
+</code></pre></li>
+
+<li><p>diff
+功能：比较文件内容
+diff dir1 dir2　比较目录1与目录2的文件列表是否相同，但不比较文件的实际内容，不同则列出
+diff file1 file2　比较文件1与文件2的内容是否相同，如果是文本格式的文件，则将不相同的内容显示，如果是二进制代码则只表示两个文件是不同的
+<br></p></li>
+
+<li><p>ln命令
+功能：建立链接。windows的快捷方式就是根据链接的原理来做的</p>
+
+<pre><code>    ln source_path target_path # 硬连接
+    ln -s source_path target_path # 软连接
+</code></pre></li>
+</ol>
+
+<h2 id="查看文件内容命令">查看文件内容命令</h2>
+
+<ol>
+<li><p>cat命令
+显示文件的内容</p>
+
+<pre><code>    cat file　
+</code></pre></li>
+
+<li><p>more命令
+功能：分页显示命令
+more　file
+more命令也可以通过管道符(|)与其他的命令一起使用,例如：</p>
+
+<pre><code>    ps ux|more
+    ls|more
+</code></pre>
+
+<p><br></p></li>
+
+<li><p>tail命令
+功能：显示文件的最后几行</p>
+
+<pre><code>    tail -n 100 aaa.txt # 显示文件aaa.txt文件的最后100行```
+</code></pre></li>
+
+<li><p>vi命令
+vi file　编辑文件file
+vi 原基本使用及命令：
+输入命令的方式为先按[ESC]键，然后输入:w(写入文件),:w!(不询问方式写入文件）,:wq保存并退出,:q退出,q!不保存退出
+<br></p></li>
+
+<li><p>touch命令
+功能：创建一个空文件</p>
+
+<pre><code>    touch aaa.txt  # 创建一个空文件，文件名为aaa.txt
+</code></pre></li>
+</ol>
+
+<h2 id="基本系统命令">基本系统命令</h2>
+
+<ol>
+<li>man命令
+功能：查看某个命令的帮助，如果你不知道某个命令的用法不懂，可以问他，他知道就回告诉你
+例如：
+<code>
+    man ls #   显示ls命令的帮助内容
+</code></li>
+</ol>
+
+<p><br></p>
+
+<ol>
+<li><p>who命令
+功能：显示登录用户
+例如：</p>
+
+<pre><code>    root:~# who
+    root   pts/0        Mar 23 21:24 (10.140.0.109)
+</code></pre></li>
+
+<li><p>date命令
+功能：系统日期设定</p>
+
+<pre><code>    date　# 显示当前日期时间
+    date -s 20:30:30　# 设置系统时间为20:30:30
+    date -s 2019-5-24　# 设置系统时期为2019-5-24
+    date -s &quot;190524 06:00:00&quot;　# 设置系统时期为2019年5月24日6点整。
+</code></pre></li>
+
+<li><p>uname命令
+功能：查看系统版本
+uname -R　显示操作系统内核的version
+例如：</p>
+
+<pre><code>    root:~# uname -a
+    Linux root 2.6.8-2-386 #1 Tue Aug 16 12:46:35 UTC 2005 i686 GNU/Linux
+</code></pre></li>
+
+<li><p>关闭和重新启动系统命令
+reboot　  重新启动计算机
+shutdown -r now  重新启动计算机，停止服务后重新启动计算机
+shutdown -h now  关闭计算机，停止服务后再关闭系统
+halt   关闭计算机
+一般用shutdown -r now,在重启系统是，关闭相关服务，shutdown -h now也是如此。</p></li>
+
+<li><p>su命令
+功能：切换用户
+su -  切换到root用户
+su - aopolin 切换到aopolin用户，
+注意：- ，他很关键，使用-，将使用用户的环境变量</p></li>
+</ol>
+
+<h2 id="监视系统状态命令">监视系统状态命令</h2>
+
+<ol>
+<li><p>top命令
+功能：查看系统cpu、内存等使用情况</p></li>
+
+<li><p>free命令
+功能：查看内存和swap分区使用情况
+例如：</p>
+
+<pre><code>    root:~# free -tm
+</code></pre>
+
+<pre><code>            total       used       free     shared    buffers     cached
+Mem:           187         42        145          0          6         16
+-/+ buffers/cache:         19        167
+Swap:          243          0        243
+Total:         430         42        388
+</code></pre></li>
+
+<li><p>ps命令
+功能：显示进程信息</p>
+
+<pre><code>    ps ux # 显示当前用户的进程
+    ps uxwww # 显示当前用户的进程的详细信息
+    ps aux # 显示所有用户的进程
+    ps ef #显示系统所有进程信息
+</code></pre></li>
+
+<li><p>kill命令
+功能：干掉某个进程，进程号可以通过ps命令得到</p>
+
+<pre><code>    kill -9 1001　# 将进程编号为1001的程序干掉
+    kill all -9 apache　# 将所有名字为apapche的程序杀死，kill不是万能的，对僵死的程序则无效。
+</code></pre></li>
+</ol>
+
+<h2 id="磁盘操作命令">磁盘操作命令</h2>
+
+<ol>
+<li><p>df命令
+功能：检查文件系统的磁盘空间占用情况。可以利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。
+参数 功能
+-a 列出全部目录
+-Ta 列出全部目录，并且显示文件类型
+-B 显示块信息
+-i 以i节点列出全部目录
+-h 按照日常习惯显示（如：1K、100M、20G）
+-x [filesystype] 不显示[filesystype]
+例如：</p>
+
+<pre><code># df -Th
+Filesystem    Type    Size  Used Avail Use% Mounted on
+/dev/sda1     ext3    265M   64M  187M  26% /
+tmpfs        tmpfs     94M     0   94M   0% /dev/shm
+/dev/sda6     ext3    714M  8.1M  667M   2% /home
+/dev/sda8     ext3    956M  215M  691M  24% /usr
+/dev/sda7     ext3    714M   57M  619M   9% /var
+</code></pre></li>
+
+<li><p>du命令
+功能：检测一个目录和（递归地）所有它的子目录中的文件占用的磁盘空间。
+参数  功能
+-s [dirName] 显示目录占用总空间
+-sk [dirName] 显示目录占用总空间，以k为单位
+-sb [dirName] 显示目录占用总空间，以b为单位
+-sm [dirName] 显示目录占用总空间，以m为单位
+-sc [dirName] 显示目录占用总空间，加上目录统计
+-sh [dirName] 只统计目录大小</p></li>
+
+<li><p>mount命令
+功能：使用mount命令就可在Linux中挂载各种文件系统。
+格式：mount -t  设备名 挂载点
+（1）、mount /dev/sda1  /mnt/filetest
+mount -t vfat /dev/hda  /mnt/fatfile
+mount -t ntfs /dev/hda  /mnt/ntfsfile
+mount -t iso9660 /dev/cdrom  /mnt/cdrom
+mount -o  设备名 挂载点
+（2）、使用usb设备
+modprobe usb-storage
+mkdir /mnt/usb
+mount -t auto /dev/sdx1 /mnt/usb
+umount /mnt/usb</p></li>
+</ol>
+
+<h2 id="用户和组相关命令">用户和组相关命令</h2>
+
+<ol>
+<li><p>groupadd命令
+功能：添加组</p>
+
+<pre><code>    groupadd test1  # 添加test1组
+    groupadd -g 1111 test2  #添加test2组，组id为1111
+</code></pre></li>
+
+<li><p>useradd命令
+功能：添加用户</p>
+
+<pre><code>    useradd user1  # 添加用户user1，home为/home/user1，组为user1
+    useradd -g test1 -m -d /home/test1 test1 # 添加用户test1，home为/home/test1，组为test1
+    user list　# 显示已登陆的用户列表
+</code></pre></li>
+
+<li><p>passwd命令
+功能：更改用户密码</p>
+
+<pre><code>    passwd user1　# 修改用户user1的密码
+    passwd -d root　# 将root用户的密码删除
+</code></pre></li>
+
+<li><p>chown命令
+功能：改变文件或目录的所有者</p>
+
+<pre><code>    chown user1 /dir　# 将/dir目录设置为user1所有
+    chown -R user1.user1 /dir　# 将/dir目录下所有文件和目录，设置为user1所有,组为user1。-R递归到下面的每个文件和目录
+</code></pre></li>
+
+<li><p>chmod命令
+功能：改变用户的权限</p>
+
+<pre><code>    chmod a+x file　# 将file文件设置为可执行，脚本类文件一定要这样设置一个，否则得用bash file才能执行
+    chmod 666 file　# 将文件file设置为可读写
+    chmod 750 file # 将文件file设置为，所有者为完全权限，同组可以读和执行，其他无权限
+</code></pre></li>
+</ol>
+
+<h2 id="压缩命令">压缩命令</h2>
+
+<ol>
+<li><p>gzip格式命令
+功能：压缩文件，gz格式的
+注意：生成的文件会把源文件覆盖
+gzip -v  压缩文件，并且显示进度
+-d  解压缩
+gnuzip  -f  解压缩
+例如：</p>
+
+<pre><code>    # gzip a.sh
+    #ll
+    -rwxr-xr-x    1 root     root           71 12月 18 21:08 a.sh.gz
+    # gzip -d a.sh.gz
+    #ll
+    -rwxr-xr-x    1 root     root           48 12月 18 21:08 a.sh
+</code></pre></li>
+
+<li><p>zip格式命令
+功能：压缩和解压缩zip命令
+zip<br />
+unzip<br />
+例如：</p>
+
+<pre><code>    # zip a.sh.zip a.sh
+    adding: a.sh (stored 0%)
+    # ll
+    -rw-r--r--    1 root     root          188  5月 21 10:37 a.sh.zip
+    # unzip a.sh.zip
+    Archive:  a.sh.zip
+    replace a.sh? [y]es, [n]o, [A]ll, [N]one, [r]ename: r
+    new name: a1.sh
+    extracting: a1.sh                  
+    # ll
+    -rwxr-xr-x    1 root     root           48 12月 18 21:08 a1.sh
+</code></pre></li>
+
+<li><p>tar命令
+功能：归档、压缩等，比较重要，会经常使用。
+-cvf    压缩文件或目录
+-xvf     解压缩文件或目录
+-zcvf    压缩文件或，格式tar.gz
+-zxvf    解压缩文件或，格式tar.gz
+-zcvf     压缩文件或，格式tgz
+-zxvf     解压缩文件或，格式tgz
+举例:</p>
+
+<pre><code>    # tar cvf abc.tar *.sh
+    # tar xvf abc.tar
+    # tar czvf abc.tar.gz *.sh
+    # ll
+    -rw-r--r--    1 root     root        20480  5月 21 10:50 abc.tar
+    -rw-r--r--    1 root     root         1223  5月 21 10:53 abc.tar.gz
+    # tar xzvf abc.tar.gz
+</code></pre></li>
+</ol>
+
+<h2 id="网络相关命令">网络相关命令</h2>
+
+<ul>
+<li>ifconfig命令
+功能：显示修改网卡的信息
+ifconfig  显示网络信息
+ifconfig eth0 显示eth0网络信息</li>
+</ul>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

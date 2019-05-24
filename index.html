@@ -40,7 +40,7 @@
     <nav>
       <ul class="sidebar-nav">
         <li><a href="https://aopolin-lv.github.io/">Home</a> </li>
-        <li><a href="/about/"> About </a></li>
+        
       </ul>
     </nav>
 
@@ -52,21 +52,38 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
-    <a href="https://aopolin-lv.github.io/about/">About</a>
+    <a href="https://aopolin-lv.github.io/post/shell_command/">Shell_基本命令</a>
   </h1>
-  <time datetime="2019-05-23T22:26:57&#43;0800" class="post-date">Thu, May 23, 2019</time>
+  <time datetime="2019-05-25T01:13:29&#43;0800" class="post-date">Sat, May 25, 2019</time>
+  写在前面：主要罗列两周以内学习到的shell命令
+文件、目录操作命令  ls命令 功能：显示文件和目录的信息
+ ls　# 以默认方式显示当前目录文件列表 ls -a # 显示所有文件包括隐藏文件 ls -l # 显示文件属性，包括大小，日期，符号连接，是否可读写及是否可执行 ls -lh # 显示文件的大小  cd命令 功能：改名目录
+ cd dir　# 切换到当前目录下的dir目录 cd /　# 切换到根目录 cd ..　# 切换到到上一级目录 cd ../..　# 切换到上二级目录 cd ~　# 切换到用户目录，比如是root用户，则切换到/root下  cp命令 功能：拷贝文件
+ cp source target　# 将文件source复制为target cp /root /source.　# 将/root下的文件source复制到当前目录 cp –av soure_dir target_dir　# 将整个目录复制，两目录完全一样  rm命令 功能：删除文件或目录
+ rm file　# 删除某一个文件 rm -f file # 删除时候不进行提示。可以于r参数配合使用，递归删除 rm -rf dir　# 删除当前目录下叫dir的整个目录  mv命令 功能：将文件移动走，或者改名
   
+  <div class="read-more-link">
+    <a href="/post/shell_command/">Read More…</a>
+  </div>
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://aopolin-lv.github.io/post/blog/">Hello World</a>
+    <a href="https://aopolin-lv.github.io/post/git/">Git基本命令</a>
   </h1>
   <time datetime="2019-05-23T22:45:09&#43;0800" class="post-date">Thu, May 23, 2019</time>
-   Hello World 
+  写在前面：由于需要在远程仓库中部署个人博客，当然也是企业开发必须掌握的版本控制工具，所以探究了一下Git的原理以及常用基本命令.
+ Git常用基本命令 Git将管理的文件分为了两个区域四个状态：
+工作区：本地开发的文件目录，文件变化会由Git自动检测
+版本库：git add .提交至暂存区后git commit -m &quot;latest commit&quot;提交至版本的分支
+ 配置用户和邮箱申请:   $ git config --local user.name 'aopolin-lv' $ git config --local user.email 'aopolin.ii@gmail.com'   git初始化：   $ git init # 将本地文件夹初始化为workspace，会在当前目录下生成.git   查看git状态:   $ git status # 查看包括分支，index区等状态   添加文件至版本库：   $ git add . # . 表示所有文件，也可以用[filename]   提交至版本库:   $ git commit -m &quot;first commit&quot; # -m可以填写提交声明，方便辨识   查看Git分支:   $ git branch   切换分支：   $ git checkout dev # 切换dev分支   回滚历史版本:   $ git log # 查看git提交日志 $ git reset --hard [版本号码] # reset进行回滚   回滚之再回滚：  $ git reflog # 不能用 git log $ git reset --hard [版本号码]   基于Github实现代码托管：  将代码推送至Github:   $ git remote add origin http://github.
+  
+  <div class="read-more-link">
+    <a href="/post/git/">Read More…</a>
+  </div>
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://aopolin-lv.github.io/post/welcome/">Hugo &#43; github 个人博客搭建</a>
+    <a href="https://aopolin-lv.github.io/post/hugo&#43;github/">Hugo &#43; github 个人博客搭建</a>
   </h1>
   <time datetime="2019-05-23T22:31:35&#43;0800" class="post-date">Thu, May 23, 2019</time>
   写在前面：搭建个人博客其实对于大部分人来说不是很困难，最简单的无非就是套用前端框架+部署后端服务器。周三pl让我准备汇报一下自己的两周学习成果，我这个人又是个大老粗，刚巧看到一个轻量级构建静态博客的方式，也就是利用hugo部署到github.page，那就索性搭个博客，把自己这两周接触到的感兴趣的东西分享出来。
@@ -83,7 +100,7 @@
  git clone [theme]  需要注意的的问题：
   
   <div class="read-more-link">
-    <a href="/post/welcome/">Read More…</a>
+    <a href="/post/hugo&#43;github/">Read More…</a>
   </div>
   
 </article>

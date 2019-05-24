@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hugo &#43; github 个人博客搭建 &middot; My New Hugo Site</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aopolin-lv.github.io/"><h1>My New Hugo Site</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aopolin-lv.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Hugo &#43; github 个人博客搭建</h1>
+  <time datetime=2019-05-23T22:31:35&#43;0800 class="post-date">Thu, May 23, 2019</time>
+  
+
+<p>写在前面：搭建个人博客其实对于大部分人来说不是很困难，最简单的无非就是套用前端框架+部署后端服务器。周三pl让我准备汇报一下自己的两周学习成果，我这个人又是个大老粗，刚巧看到一个轻量级构建静态博客的方式，也就是利用hugo部署到github.page，那就索性搭个博客，把自己这两周接触到的感兴趣的东西分享出来。</p>
+
+<hr />
+
+<p><img src="https://d33wubrfki0l68.cloudfront.net/30790d6888bd8af863fb2b5c33a7f337cdbda243/4e867/images/hugo-logo-wide.svg" alt="Hugo" title="hugo" /></p>
+
+<h5 id="所用工具-hugo-https-gohugo-io-git-https-git-scm-com-github-https-github-com">所用工具：<a href="https://gohugo.io/">Hugo</a>, <a href="https://git-scm.com/">Git</a>, <a href="https://github.com/">Github</a></h5>
+
+<ul>
+<li><h3 id="hugo介绍及安装">Hugo介绍及安装</h3>
+
+<p>windows：点击下一步
+osx/linux:  详见<a href="https://www.gohugo.org/">Hugo中文文档</a>
+查看是否安装:</p>
+
+<pre><code>    $ hugo version
+</code></pre>
+
+<p>出现hugo版本信息则表示成功:</p>
+
+<pre><code>    Hugo Static Site Generator v0.54.0-B1A82C61 windows/amd64 BuildDate: 2019-02-01T09:42:02Z
+</code></pre>
+
+<p><del>Tips: 注意设置环境变量path</del></p></li>
+
+<li><h3 id="本地部署hugo">本地部署Hugo：</h3>
+
+<p>下载成功后，生成自己的站点:</p>
+
+<pre><code>    $ hugo new stie [path]
+</code></pre>
+
+<p>hugo会自动部署目录结构到[path]:</p>
+
+<pre><code>    ▸ archetypes/
+    ▸ content/
+    ▸ layouts/
+    ▸ static/
+    config.toml
+</code></pre>
+
+<p>注意：<u>config.toml也可以替换为YAML格式的config.yaml，或者json格式的config.json</u>
+创建页面：</p>
+
+<pre><code>    $ hugo new about.md
+</code></pre>
+
+<p>如果是博客日志，最好放在content的post目录里:</p>
+
+<pre><code>    $ hugo new post/first.md
+</code></pre>
+
+<p>安装皮肤:<br>
+主题网址:<a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a><br />
+进入themes目录之后：</p>
+
+<pre><code>    git clone [theme]
+</code></pre>
+
+<p>需要注意的的问题：<br />
+1.注意hugo的版本与主题是否匹配，如果下载的是历史版本的hugo，可能会出现不符合主题的最低版本要求;<br />
+2.下载主题之后，需要按照主题的官方配置进行配置，不然就会出现各种<code>error</code>、<code>warn</code>；<br />
+启动本地调试：</p>
+
+<pre><code>    $ hugo server --theme=[theme] --buildDrafts --watch
+</code></pre>
+
+<p>上述命令中<br />
+ <code>--buildDrafts</code>代表会生成可发布的静态html。如果没有指定路径，默认在当前路径下新建<code>public</code>文件夹<br />
+ <code>--watch</code>   代表监控到文章的改动从而自动去刷新浏览器，不需要自己手工去刷新浏览器，非常方便<br />
+浏览器打开：<a href="http://localhost:1313/">http://localhost:1313/</a><br />
+如果页面正常显示，则代表本地部署成功。</p></li>
+
+<li><h3 id="远程仓库部署">远程仓库部署</h3>
+
+<ol>
+<li>在Github上创建一个Repository:<br>
+注意命名：<code>aopolin-lv.github.io</code>(aopolin-lv为github用户名)</li>
+<li>在站点根目录生成最终页面：<br>
+<code>
+$ hugo --theme=[theme] --baseUrl=&quot;http://aopolin-lv.github.io/&quot;
+</code><br />
+所有的静态页面将会生成到<code>public</code>目录中，将<code>public</code>目录中所有文件<code>push</code>到远程仓库的<code>master</code>分支。</li>
+</ol></li>
+
+<li><h3 id="遇到的问题">遇到的问题：</h3>
+
+<ol>
+<li>仓库名必须要全小写，这对于一些大写用户名来说非常不友好，包括老博客移植等等，已经有人提出pr并通过，用户可以在<code>config.toml</code>中进行参数设置忽略大小写；；</li>
+<li>在配置theme的时候，没有按照官方文档配置，往往好看的主题都有复杂的样式，其中有例如更换<code>config.toml</code>或者对其中的<code>[param]</code> 进行修改（我在这里就疯狂报错）；</li>
+<li><code>hugo server</code>必须运行在根目录下，否则无法匹配<code>theme</code>等；</li>
+</ol></li>
+</ul>
+
+<hr />
+
+<p>写在最后：hugo的部署相对简单，其中的文档也支持markdown格式，可以说是对用户来说非常友好。由于时间比较紧张，目前关于theme的样式还有待探索，只是粗糙的总结了一下自己的学习。</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

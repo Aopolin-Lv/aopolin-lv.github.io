@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.54.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Git基本命令 &middot; My New Hugo Site</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aopolin-lv.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aopolin-lv.github.io/"><h1>My New Hugo Site</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aopolin-lv.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Git基本命令</h1>
+  <time datetime=2019-05-23T22:45:09&#43;0800 class="post-date">Thu, May 23, 2019</time>
+  
+
+<p>写在前面：由于需要在远程仓库中部署个人博客，当然也是企业开发必须掌握的版本控制工具，所以探究了一下Git的原理以及常用基本命令.</p>
+
+<hr />
+
+<div align=center><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558725493999&di=6808ede0d51747b700ab5229f4805325&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F0fb66998d81910d1bcabe2c649cd083511524dfa.jpg" width = "500" height = "300" div align=center />
+</div>
+
+<h2 id="git常用基本命令">Git常用基本命令</h2>
+
+<p>Git将管理的文件分为了两个区域四个状态：<br />
+<img src="https://images2017.cnblogs.com/blog/425762/201708/425762-20170811093733792-860907399.png" alt="pic13" />
+<strong>工作区</strong>：本地开发的文件目录，文件变化会由Git自动检测<br />
+<strong>版本库</strong>：<code>git add .</code>提交至暂存区后<code>git commit -m &quot;latest commit&quot;</code>提交至版本的分支</p>
+
+<ul>
+<li>配置用户和邮箱申请:</li>
+</ul>
+
+<pre><code>    $ git config --local user.name 'aopolin-lv'
+    $ git config --local user.email 'aopolin.ii@gmail.com'
+</code></pre>
+
+<ul>
+<li>git初始化：</li>
+</ul>
+
+<pre><code>    $ git init      # 将本地文件夹初始化为workspace，会在当前目录下生成.git
+</code></pre>
+
+<ul>
+<li>查看git状态:</li>
+</ul>
+
+<pre><code>    $ git status    # 查看包括分支，index区等状态
+</code></pre>
+
+<ul>
+<li>添加文件至版本库：</li>
+</ul>
+
+<pre><code>    $ git add .     # . 表示所有文件，也可以用[filename]
+</code></pre>
+
+<ul>
+<li>提交至版本库:</li>
+</ul>
+
+<pre><code>    $ git commit -m &quot;first commit&quot;    # -m可以填写提交声明，方便辨识
+</code></pre>
+
+<ul>
+<li>查看Git分支:</li>
+</ul>
+
+<pre><code>    $ git branch 
+</code></pre>
+
+<ul>
+<li>切换分支：</li>
+</ul>
+
+<pre><code>    $ git checkout dev       # 切换dev分支
+</code></pre>
+
+<hr />
+
+<p><img src="https://images2017.cnblogs.com/blog/425762/201708/425762-20170811110830683-181174888.png" alt="pic2" /></p>
+
+<ul>
+<li>回滚历史版本:</li>
+</ul>
+
+<pre><code>    $ git log                                         # 查看git提交日志
+    $ git reset --hard [版本号码]                      # reset进行回滚 
+</code></pre>
+
+<ul>
+<li>回滚之再回滚：
+<code>
+$ git reflog                                      # 不能用 git log 
+$ git reset --hard [版本号码]                   
+</code></li>
+</ul>
+
+<h3 id="基于github实现代码托管">基于Github实现代码托管：</h3>
+
+<ul>
+<li>将代码推送至Github:</li>
+</ul>
+
+<pre><code>    $ git remote add origin http://github.com/Aopolin-Lv/aopolin-lv.github.io.git
+</code></pre>
+
+<ul>
+<li>将本地master分支推送至Github:</li>
+</ul>
+
+<pre><code>    $ git push origin mater                           # origin 表示远程仓库
+</code></pre>
+
+<ul>
+<li>从Github上获取代码到本地:</li>
+</ul>
+
+<pre><code>    $ git clone https://github.com/Aopolin-Lv/aopolin.github.io.git
+</code></pre>
+
+<ul>
+<li>从远程GitHub仓库获取dev分支最新内容，并合并到本地：</li>
+</ul>
+
+<pre><code>    $ git pull origin dev
+</code></pre>
+
+<hr />
+
+<p>写在最后：Git命令还有很多，包括多人参与合作项目合并分支，解决冲突分支等等，由于时间关系，下次再做补充</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
