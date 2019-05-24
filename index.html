@@ -59,17 +59,32 @@
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://aopolin-lv.github.io/post/blog/">test blog</a>
+    <a href="https://aopolin-lv.github.io/post/blog/">Hello World</a>
   </h1>
   <time datetime="2019-05-23T22:45:09&#43;0800" class="post-date">Thu, May 23, 2019</time>
-   啦啦啦 
+   Hello World 
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://aopolin-lv.github.io/post/welcome/">Hugo &#43; github个人博客搭建</a>
+    <a href="https://aopolin-lv.github.io/post/welcome/">Hugo &#43; github 个人博客搭建</a>
   </h1>
   <time datetime="2019-05-23T22:31:35&#43;0800" class="post-date">Thu, May 23, 2019</time>
-  #Hugo+Github个人博客搭建 ##这是二级标题
+  写在前面：搭建个人博客其实对于大部分人来说不是很困难，最简单的无非就是套用前端框架+部署后端服务器。周三pl让我准备汇报一下自己的两周学习成果，我这个人又是个大老粗，刚巧看到一个轻量级构建静态博客的方式，也就是利用hugo部署到github.page，那就索性搭个博客，把自己这两周接触到的感兴趣的东西分享出来。
+所用工具：Hugo, Git, Github  Hugo介绍及安装 windows：点击下一步 osx/linux: 详见Hugo中文文档 查看是否安装:
+ $ hugo version  出现hugo版本信息则表示成功:
+ Hugo Static Site Generator v0.54.0-B1A82C61 windows/amd64 BuildDate: 2019-02-01T09:42:02Z  Tips: 注意设置环境变量path
+ 本地部署Hugo： 下载成功后，生成自己的站点:
+ $ hugo new stie [path]  hugo会自动部署目录结构到[path]:
+ ▸ archetypes/ ▸ content/ ▸ layouts/ ▸ static/ config.toml  注意：config.toml也可以替换为YAML格式的config.yaml，或者json格式的config.json 创建页面：
+ $ hugo new about.md  如果是博客日志，最好放在content的post目录里:
+ $ hugo new post/first.md  安装皮肤:
+主题网址:https://themes.gohugo.io/
+进入themes目录之后：
+ git clone [theme]  需要注意的的问题：
+  
+  <div class="read-more-link">
+    <a href="/post/welcome/">Read More…</a>
+  </div>
   
 </article>
 </div>
